@@ -1,0 +1,33 @@
+{
+	"name": "exampleItem",
+	"desc": [
+		"example desc",
+		"example desc"
+	],
+	"texture":"/textures/exampleItem",
+	"type": [ "none","sword","bow","pickaxe",
+            "axe","shovel","hoe","consumable",
+	          "throwable","newTool"
+	],
+	"lootTable":[ "none","pillagerOutpost_7%" ,
+	              "villageWeaponsmith_8%_1-4",
+	              "mod:structure_%_amount","all"],
+	"attributes": {
+		"damage":       255,
+		"miningSpeed":  10,
+		"bonusReach":   -2,
+		"attackSpeed":  2,
+		"protection":   8,
+		"thoughness":   4
+	},
+	"onHit":"setfire",
+	"onLeftClick":"setfire",
+	"onRightClick":"openGui",
+	"onKeyPress":"switchtoItem_mod:exampleitem2",
+	"onBreak":"none",
+	"craftingBlock": ["craftingTable","anvil","mod:block"],
+	"recipe": [
+	  "itemSlot1","itemSlot2","itemSlot3",
+	  "itemSlot4","itemSlot5","..."
+	]
+}
