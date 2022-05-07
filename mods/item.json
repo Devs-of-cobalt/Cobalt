@@ -6,10 +6,10 @@
 	],
 	"texture":"/textures/exampleItem",
 	"type": [ "none","sword","bow","pickaxe",
-            "axe","shovel","hoe","consumable",
+			  "axe","shovel","hoe","consumable",
 	          "throwable","newTool"
 	],
-	"lootTable":[ "none","pillagerOutpost_7%" ,
+	"lootTable":[ "none","pillagerOutpost_7%",
 	              "villageWeaponsmith_8%_1-4",
 	              "mod:structure_%_amount","all"],
 	"attributes": {
