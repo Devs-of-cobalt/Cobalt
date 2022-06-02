@@ -1,8 +1,8 @@
 une api pour alléger le mod principal et garantir compatibilitée entre mods?
 dans l'api:
 interface universelle de câbles
-gestionnaire de génération ores/biomes/dimensions
-?
+Quelle unité d'énergie?
+gestionnaire de génération ores/biomes/dimensions ?
 
 dans mod2jar:
 génération ficher de config auto pour le mod
