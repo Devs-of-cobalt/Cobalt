@@ -15,7 +15,13 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void handleButton();
+
+    void on_actionNew_item_triggered();
+
 private:
     Ui::MainWindow *ui;
+    QAction *createItemButton;
 };
 #endif // MAINWINDOW_H
