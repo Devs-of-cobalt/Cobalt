@@ -1,18 +1,25 @@
-{
-	"name": "exampleItem",
-	"desc": [
+"item":{
+	"_comment":"base de l'item|block", 
+	"name":"exampleItem",
+	"desc":[
 		"example desc",
 		"example desc"
 	],
-	"texture":"/textures/exampleItem",
-	"type": [ "none","sword","bow","pickaxe",
-			  "axe","shovel","hoe","consumable",
-	          "throwable","newTool"
-	],
-	"lootTable":[ "none","pillagerOutpost_7%",
-	              "villageWeaponsmith_8%_1-4",
-	              "mod:structure_%_amount","all"],
-	"attributes": {
+	"itemTexture":"/textures/exampleItem",
+	
+	"_comment":"basically je dit si c'est un block ou pas", 
+	"placeable":{ false, 
+				  "breakingSound":"/sounds/exampleSound",
+				  "texture":"/textures/exampleBlock",
+				  "blockStates":["newBlockState"]
+	},
+	
+	"_comment":"theoriquement item only jusqu'a onKeyPress", 
+	"type":[ "none","sword","bow","pickaxe",
+			 "axe","shovel","hoe","consumable",
+	         "throwable","newTool"
+	],	
+	"attributes":{
 		"damage":       255,
 		"miningSpeed":  10,
 		"bonusReach":   -2,
@@ -20,14 +27,22 @@
 		"protection":   8,
 		"thoughness":   4
 	},
-	"onHit":"setfire",
-	"onLeftClick":"setfire",
-	"onRightClick":"openGui",
-	"onKeyPress":"switchtoItem_mod:exampleitem2",
-	"onBreak":"none",
-	"craftingBlock": ["craftingTable","anvil","mod:block"],
-	"recipe": [
+	"onHit":["setEffect.effectName",""]
+	"onLeftClick":["setEffect"],	
+	"onKeyPress":{
+		"k":"switchToItem.mod:exampleItem2",
+		"j":"openGui.guiName"
+	},
+	
+	"onBreak":"none|dropItem",
+	"onRightClick":"openGui.guiName2",
+	"craftingBlock":["craftingTable","anvil","mod:block"],
+	"recipe":[
 	  "itemSlot1","itemSlot2","itemSlot3",
 	  "itemSlot4","itemSlot5","..."
+	],
+	"lootTable":[ "none","all","pillagerOutpost.7%",
+	              "villageWeaponsmith.8%.1-4",
+	              "mod:structure.%.amount"
 	]
 }
