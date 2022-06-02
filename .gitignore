@@ -1,6 +1,4 @@
 build-C*/
-*.apk
-*.unitypackage
 /build-C*/
 build-Cobalt-Desktop_Qt_6_1_2_MinGW_64_bit-Debug/
 /build-Cobalt-Desktop_Qt_6_1_2_MinGW_64_bit-Debug/
