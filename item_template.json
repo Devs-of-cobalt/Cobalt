@@ -1,0 +1,32 @@
+{
+	"type": "tool/sword|shovel|axe|pickaxe|hoe
+			|armor/head|chest|legs|feet
+			|any
+			|block",
+	"damage": 1,
+	"durability": 1000,
+	"name": "",
+	"id": "mod:id",
+	"lore": [
+		"lorem ipsum",
+		"dolor si amet"
+	],
+	"enchants": [
+		{
+			"id":"minecraft:fire_aspect",
+			"level": 0
+		}
+	],
+	"behaviourScript": "./example.java",
+	"sprite": "./example.png",
+	"attackSpeed": 1,
+	"attributes": [
+		{
+			"event": "inHand",
+			"effect": {
+				"property": "speed",
+				"modifier": 10
+			}
+		}
+	]
+}
