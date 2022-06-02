@@ -19,6 +19,7 @@
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QScrollArea>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
@@ -32,14 +33,15 @@ public:
     QWidget *scrollAreaWidgetContents;
     QWidget *formLayoutWidget;
     QFormLayout *formLayout;
-    QLabel *ST_Name;
-    QLineEdit *ED_Name;
-    QLabel *ST_Type;
-    QComboBox *CB_Type;
-    QLabel *ST_SubType;
-    QComboBox *CB_SubType;
-    QLabel *ST_ID;
-    QLineEdit *ED_ID;
+    QLabel *nameLabel;
+    QLineEdit *nameLineEdit;
+    QLabel *typeLabel;
+    QComboBox *typeComboBox;
+    QLabel *subTypeLabel;
+    QComboBox *subTypeComboBox;
+    QLabel *iDLabel;
+    QLineEdit *iDLineEdit;
+    QSpacerItem *horizontalSpacer;
     QPushButton *B;
     QMenuBar *menubar;
     QStatusBar *statusbar;
@@ -53,61 +55,60 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         scrollArea = new QScrollArea(centralwidget);
         scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
-        scrollArea->setGeometry(QRect(10, 10, 771, 491));
+        scrollArea->setGeometry(QRect(10, 10, 781, 491));
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 769, 489));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 779, 489));
         formLayoutWidget = new QWidget(scrollAreaWidgetContents);
         formLayoutWidget->setObjectName(QString::fromUtf8("formLayoutWidget"));
-        formLayoutWidget->setGeometry(QRect(-1, -1, 771, 491));
+        formLayoutWidget->setGeometry(QRect(49, 49, 641, 381));
         formLayout = new QFormLayout(formLayoutWidget);
         formLayout->setObjectName(QString::fromUtf8("formLayout"));
         formLayout->setContentsMargins(0, 0, 0, 0);
-        ST_Name = new QLabel(formLayoutWidget);
-        ST_Name->setObjectName(QString::fromUtf8("ST_Name"));
+        nameLabel = new QLabel(formLayoutWidget);
+        nameLabel->setObjectName(QString::fromUtf8("nameLabel"));
 
-        formLayout->setWidget(0, QFormLayout::LabelRole, ST_Name);
+        formLayout->setWidget(0, QFormLayout::LabelRole, nameLabel);
 
-        ED_Name = new QLineEdit(formLayoutWidget);
-        ED_Name->setObjectName(QString::fromUtf8("ED_Name"));
+        nameLineEdit = new QLineEdit(formLayoutWidget);
+        nameLineEdit->setObjectName(QString::fromUtf8("nameLineEdit"));
 
-        formLayout->setWidget(0, QFormLayout::FieldRole, ED_Name);
+        formLayout->setWidget(0, QFormLayout::FieldRole, nameLineEdit);
 
-        ST_Type = new QLabel(formLayoutWidget);
-        ST_Type->setObjectName(QString::fromUtf8("ST_Type"));
+        typeLabel = new QLabel(formLayoutWidget);
+        typeLabel->setObjectName(QString::fromUtf8("typeLabel"));
 
-        formLayout->setWidget(1, QFormLayout::LabelRole, ST_Type);
+        formLayout->setWidget(1, QFormLayout::LabelRole, typeLabel);
 
-        CB_Type = new QComboBox(formLayoutWidget);
-        CB_Type->addItem(QString());
-        CB_Type->addItem(QString());
-        CB_Type->addItem(QString());
-        CB_Type->addItem(QString());
-        CB_Type->setObjectName(QString::fromUtf8("CB_Type"));
+        typeComboBox = new QComboBox(formLayoutWidget);
+        typeComboBox->setObjectName(QString::fromUtf8("typeComboBox"));
 
-        formLayout->setWidget(1, QFormLayout::FieldRole, CB_Type);
+        formLayout->setWidget(1, QFormLayout::FieldRole, typeComboBox);
 
-        ST_SubType = new QLabel(formLayoutWidget);
-        ST_SubType->setObjectName(QString::fromUtf8("ST_SubType"));
+        subTypeLabel = new QLabel(formLayoutWidget);
+        subTypeLabel->setObjectName(QString::fromUtf8("subTypeLabel"));
 
-        formLayout->setWidget(2, QFormLayout::LabelRole, ST_SubType);
+        formLayout->setWidget(2, QFormLayout::LabelRole, subTypeLabel);
 
-        CB_SubType = new QComboBox(formLayoutWidget);
-        CB_SubType->setObjectName(QString::fromUtf8("CB_SubType"));
-        CB_SubType->setEnabled(false);
+        subTypeComboBox = new QComboBox(formLayoutWidget);
+        subTypeComboBox->setObjectName(QString::fromUtf8("subTypeComboBox"));
 
-        formLayout->setWidget(2, QFormLayout::FieldRole, CB_SubType);
+        formLayout->setWidget(2, QFormLayout::FieldRole, subTypeComboBox);
 
-        ST_ID = new QLabel(formLayoutWidget);
-        ST_ID->setObjectName(QString::fromUtf8("ST_ID"));
+        iDLabel = new QLabel(formLayoutWidget);
+        iDLabel->setObjectName(QString::fromUtf8("iDLabel"));
 
-        formLayout->setWidget(3, QFormLayout::LabelRole, ST_ID);
+        formLayout->setWidget(3, QFormLayout::LabelRole, iDLabel);
 
-        ED_ID = new QLineEdit(formLayoutWidget);
-        ED_ID->setObjectName(QString::fromUtf8("ED_ID"));
+        iDLineEdit = new QLineEdit(formLayoutWidget);
+        iDLineEdit->setObjectName(QString::fromUtf8("iDLineEdit"));
 
-        formLayout->setWidget(3, QFormLayout::FieldRole, ED_ID);
+        formLayout->setWidget(3, QFormLayout::FieldRole, iDLineEdit);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        formLayout->setItem(4, QFormLayout::SpanningRole, horizontalSpacer);
 
         scrollArea->setWidget(scrollAreaWidgetContents);
         B = new QPushButton(centralwidget);
@@ -130,15 +131,10 @@ public:
     void retranslateUi(QMainWindow *newItem)
     {
         newItem->setWindowTitle(QCoreApplication::translate("newItem", "MainWindow", nullptr));
-        ST_Name->setText(QCoreApplication::translate("newItem", "Name:", nullptr));
-        ST_Type->setText(QCoreApplication::translate("newItem", "Type:", nullptr));
-        CB_Type->setItemText(0, QCoreApplication::translate("newItem", "any", nullptr));
-        CB_Type->setItemText(1, QCoreApplication::translate("newItem", "tool", nullptr));
-        CB_Type->setItemText(2, QCoreApplication::translate("newItem", "armor", nullptr));
-        CB_Type->setItemText(3, QCoreApplication::translate("newItem", "block", nullptr));
-
-        ST_SubType->setText(QCoreApplication::translate("newItem", "Subtype:", nullptr));
-        ST_ID->setText(QCoreApplication::translate("newItem", "ID:", nullptr));
+        nameLabel->setText(QCoreApplication::translate("newItem", "Name", nullptr));
+        typeLabel->setText(QCoreApplication::translate("newItem", "Type", nullptr));
+        subTypeLabel->setText(QCoreApplication::translate("newItem", "SubType", nullptr));
+        iDLabel->setText(QCoreApplication::translate("newItem", "ID", nullptr));
         B->setText(QCoreApplication::translate("newItem", "Save", nullptr));
     } // retranslateUi
 
