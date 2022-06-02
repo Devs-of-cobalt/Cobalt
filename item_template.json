@@ -28,5 +28,11 @@
 				"modifier": 10
 			}
 		}
-	]
+	],
+	"energy": {
+		"used": true,
+		"maximum"?: 1000,
+		"perHit"?: 10,
+		"chargingSpeed"?: 10
+	}
 }
