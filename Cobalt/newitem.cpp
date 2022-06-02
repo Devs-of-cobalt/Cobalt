@@ -55,6 +55,9 @@ void newItem::on_B_clicked()
     if (!ui->ED_ID->text().contains(":")) {
         QMessageBox *error = new QMessageBox(QMessageBox::Warning, "Invalid ID", "Please include the mod id in the item id (mod_id:item_id).");
         error->open();
+    } else if (ui->ED_Name->text().isEmpty()) {
+        QMessageBox *error = new QMessageBox(QMessageBox::Warning, "Invalid Name", "Please give a name to your item!");
+        error->open();
     } else {
         hide();
     }
