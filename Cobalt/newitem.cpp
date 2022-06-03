@@ -68,4 +68,3 @@ void newItem::on_typeComboBox_currentIndexChanged(int index)
         break;
     }
 }
-
