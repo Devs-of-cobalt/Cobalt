@@ -14,7 +14,11 @@ newItem::newItem(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->ED_Name->setText("");
+    ui->nameLineEdit->setText("");
+
+    ui->subTypeComboBox->setEnabled(false);
+
+    ui->typeComboBox->addItems({"any", "tools", "armor", "block"});
 }
 
 newItem::~newItem()
@@ -22,40 +26,45 @@ newItem::~newItem()
     delete ui;
 }
 
-
-void newItem::on_CB_Type_currentIndexChanged(int index)
+void newItem::on_B_clicked()
 {
-    ui->CB_SubType->clear();
+    if (!ui->iDLineEdit->text().contains(":")) {
+        QMessageBox *error = new QMessageBox(QMessageBox::Warning, "Invalid ID", "Please include the mod id in the item id (mod_id:item_id).");
+        error->open();
+    } else if (ui->nameLineEdit->text().isEmpty()) {
+        QMessageBox *error = new QMessageBox(QMessageBox::Warning, "Invalid Name", "Please give a name to your item!");
+        error->open();
+    } else {
+        QList<QString> lore;
+        lore = ui->loreTextEdit->toPlainText().split("\n").toList();
+
+        hide();
+    }
+
+}
+
+void newItem::on_typeComboBox_currentIndexChanged(int index)
+{
+    ui->subTypeComboBox->clear();
 
     eItemType type = static_cast<eItemType>(index);
     switch(type) {
     case ANY:
-        ui->CB_SubType->setEnabled(false);
+        ui->subTypeComboBox->setEnabled(false);
         break;
 
     case TOOL:
-        ui->CB_SubType->setEnabled(true);
-        ui->CB_SubType->addItems({"axe", "hoe", "pickaxe", "shovel", "sword"});
+        ui->subTypeComboBox->setEnabled(true);
+        ui->subTypeComboBox->addItems({"axe", "hoe", "pickaxe", "shovel", "sword"});
         break;
 
     case ARMOR:
-        ui->CB_SubType->setEnabled(true);
-        ui->CB_SubType->addItems({"head", "chest", "legs", "feet"});
+        ui->subTypeComboBox->setEnabled(true);
+        ui->subTypeComboBox->addItems({"head", "chest", "legs", "feet"});
         break;
 
     case BLOCK:
-        ui->CB_SubType->setEnabled(false);
+        ui->subTypeComboBox->setEnabled(false);
         break;
-    }
-}
-
-
-void newItem::on_B_clicked()
-{
-    if (!ui->ED_ID->text().contains(":")) {
-        QMessageBox *error = new QMessageBox(QMessageBox::Warning, "Invalid ID", "Please include the mod id in the item id (mod_id:item_id).");
-        error->open();
-    } else {
-        hide();
     }
 }
