@@ -20,7 +20,9 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -42,6 +44,12 @@ public:
     QLabel *iDLabel;
     QLineEdit *iDLineEdit;
     QSpacerItem *horizontalSpacer;
+    QLabel *damageLabel;
+    QSpinBox *damageSpinBox;
+    QLabel *durabilityLabel;
+    QSpinBox *durabilitySpinBox;
+    QLabel *loreLabel;
+    QTextEdit *loreTextEdit;
     QPushButton *B;
     QMenuBar *menubar;
     QStatusBar *statusbar;
@@ -110,6 +118,36 @@ public:
 
         formLayout->setItem(4, QFormLayout::SpanningRole, horizontalSpacer);
 
+        damageLabel = new QLabel(formLayoutWidget);
+        damageLabel->setObjectName(QString::fromUtf8("damageLabel"));
+
+        formLayout->setWidget(5, QFormLayout::LabelRole, damageLabel);
+
+        damageSpinBox = new QSpinBox(formLayoutWidget);
+        damageSpinBox->setObjectName(QString::fromUtf8("damageSpinBox"));
+
+        formLayout->setWidget(5, QFormLayout::FieldRole, damageSpinBox);
+
+        durabilityLabel = new QLabel(formLayoutWidget);
+        durabilityLabel->setObjectName(QString::fromUtf8("durabilityLabel"));
+
+        formLayout->setWidget(6, QFormLayout::LabelRole, durabilityLabel);
+
+        durabilitySpinBox = new QSpinBox(formLayoutWidget);
+        durabilitySpinBox->setObjectName(QString::fromUtf8("durabilitySpinBox"));
+
+        formLayout->setWidget(6, QFormLayout::FieldRole, durabilitySpinBox);
+
+        loreLabel = new QLabel(formLayoutWidget);
+        loreLabel->setObjectName(QString::fromUtf8("loreLabel"));
+
+        formLayout->setWidget(7, QFormLayout::LabelRole, loreLabel);
+
+        loreTextEdit = new QTextEdit(formLayoutWidget);
+        loreTextEdit->setObjectName(QString::fromUtf8("loreTextEdit"));
+
+        formLayout->setWidget(7, QFormLayout::FieldRole, loreTextEdit);
+
         scrollArea->setWidget(scrollAreaWidgetContents);
         B = new QPushButton(centralwidget);
         B->setObjectName(QString::fromUtf8("B"));
@@ -117,7 +155,7 @@ public:
         newItem->setCentralWidget(centralwidget);
         menubar = new QMenuBar(newItem);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 25));
+        menubar->setGeometry(QRect(0, 0, 800, 20));
         newItem->setMenuBar(menubar);
         statusbar = new QStatusBar(newItem);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -135,6 +173,9 @@ public:
         typeLabel->setText(QCoreApplication::translate("newItem", "Type", nullptr));
         subTypeLabel->setText(QCoreApplication::translate("newItem", "SubType", nullptr));
         iDLabel->setText(QCoreApplication::translate("newItem", "ID", nullptr));
+        damageLabel->setText(QCoreApplication::translate("newItem", "Damage", nullptr));
+        durabilityLabel->setText(QCoreApplication::translate("newItem", "Durability", nullptr));
+        loreLabel->setText(QCoreApplication::translate("newItem", "Lore", nullptr));
         B->setText(QCoreApplication::translate("newItem", "Save", nullptr));
     } // retranslateUi
 

@@ -20,9 +20,9 @@ public:
 private slots:
     void handleButton();
 
-    void on_CB_Type_currentIndexChanged(int index);
-
     void on_B_clicked();
+
+    void on_typeComboBox_currentIndexChanged(int index);
 
 private:
     Ui::newItem *ui;

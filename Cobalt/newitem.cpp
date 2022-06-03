@@ -15,6 +15,10 @@ newItem::newItem(QWidget *parent) :
     ui->setupUi(this);
 
     ui->nameLineEdit->setText("");
+
+    ui->subTypeComboBox->setEnabled(false);
+
+    ui->typeComboBox->addItems({"any", "tools", "armor", "block"});
 }
 
 newItem::~newItem()
@@ -22,8 +26,24 @@ newItem::~newItem()
     delete ui;
 }
 
+void newItem::on_B_clicked()
+{
+    if (!ui->iDLineEdit->text().contains(":")) {
+        QMessageBox *error = new QMessageBox(QMessageBox::Warning, "Invalid ID", "Please include the mod id in the item id (mod_id:item_id).");
+        error->open();
+    } else if (ui->nameLineEdit->text().isEmpty()) {
+        QMessageBox *error = new QMessageBox(QMessageBox::Warning, "Invalid Name", "Please give a name to your item!");
+        error->open();
+    } else {
+        QList<QString> lore;
+        lore = ui->loreTextEdit->toPlainText().split("\n").toList();
 
-void newItem::on_CB_Type_currentIndexChanged(int index)
+        hide();
+    }
+
+}
+
+void newItem::on_typeComboBox_currentIndexChanged(int index)
 {
     ui->subTypeComboBox->clear();
 
@@ -49,16 +69,3 @@ void newItem::on_CB_Type_currentIndexChanged(int index)
     }
 }
 
-
-void newItem::on_B_clicked()
-{
-    if (!ui->iDLineEdit->text().contains(":")) {
-        QMessageBox *error = new QMessageBox(QMessageBox::Warning, "Invalid ID", "Please include the mod id in the item id (mod_id:item_id).");
-        error->open();
-    } else if (ui->nameLineEdit->text().isEmpty()) {
-        QMessageBox *error = new QMessageBox(QMessageBox::Warning, "Invalid Name", "Please give a name to your item!");
-        error->open();
-    } else {
-        hide();
-    }
-}
