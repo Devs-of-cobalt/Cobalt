@@ -126,7 +126,14 @@
         </widget>
        </item>
        <item row="7" column="1">
-        <widget class="QTextEdit" name="loreTextEdit"/>
+        <widget class="QTextEdit" name="loreTextEdit">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -152,7 +159,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>20</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
