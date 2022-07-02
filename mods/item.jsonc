@@ -21,19 +21,9 @@
 			}
 		]
 	},
-	//theoriquement item only jusqu'a onKeyPress
+	//theoriquement item only jusqu'a onKeyPress, les '|' ne seraient pas utilisés '","' à la place
 	"type": [
-		"none",
-		"sword",
-		"bow",
-		"pickaxe",
-		"axe",
-		"shovel",
-		"hoe",
-		"consumable",
-		"throwable",
-		"armor.head",
-		"newTool"
+		"sword|bow|pickaxe|axe|shovel|hoe|consumable|throwable|armor.head|newTool"
 	],
 	"attributes": {
 		"damage": 255,
@@ -51,38 +41,20 @@
 			}
 		}
 	},
-	"events": {
-		"on": {
-			"hit": [
-				"setEffect.effectName",
-				"useResource.resourceName"
-			],
-			"keyPress": {
-				"mouse1": [
-					"setEffect"
-				],
-				"mouse2": [
-					"openGui.guiName2"
-				],
-				"k": [
-					"switchToItem.mod:exampleItem2"
-				],
-				"j": [
-					"openGui.guiName"
-				]
-			},
-			"break": [
-				"none|dropItem"
-			],
-			"blockBreak": [
-				"setEffect"
-			]
-		}
-	},
-	"craftingBlock": [
-		"craftingTable",
-		"anvil",
-		"mod:block"
+	"events": [
+        {
+            "on": "hit|keyPress.mouse1|wear|break|blockBreak",
+            "effect": [
+                "setEffect(effectName)",
+				"switchToItem(mod:exampleItem2)",
+                "useResource(resourceName)",
+				"openGui(guiName)",
+				"dropItem"
+            ]
+        }
+	],
+	"craftingBlocks": [
+		"craftingTable|anvil|mod:block"
 	],
 	"recipe": [
 		"itemSlot1",
@@ -93,10 +65,6 @@
 		"..."
 	],
 	"lootTable": [
-		"none",
-		"all",
-		"pillagerOutpost.7%",
-		"villageWeaponsmith.8%.1-4",
-		"mod:structure.%.amount"
+		"none|all|pillagerOutpost(7%)|villageWeaponsmith(8%, 1-4)|mod:structure(%, amount)"
 	]
 }
