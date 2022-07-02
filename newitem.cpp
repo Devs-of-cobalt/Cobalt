@@ -2,7 +2,7 @@
 #include "ui_newitem.h"
 
 enum eItemType {
-    ANY,
+    NONE,
     TOOL,
     ARMOR,
     BLOCK
@@ -17,7 +17,7 @@ newItem::newItem(QWidget* parent) :
 
     ui->subTypeComboBox->setEnabled(false);
 
-    ui->typeComboBox->addItems({ "any", "tools", "armor", "block" });
+    ui->typeComboBox->addItems({ "none", "tools", "armor", "block" });
 }
 
 newItem::~newItem() {
@@ -25,10 +25,7 @@ newItem::~newItem() {
 }
 
 void newItem::on_B_clicked() {
-    if (!ui->iDLineEdit->text().contains(":")) {
-        QMessageBox* error = new QMessageBox(QMessageBox::Warning, "Invalid ID", "Please include the mod id in the item id (mod_id:item_id).");
-        error->open();
-    } else if (ui->nameLineEdit->text().isEmpty()) {
+    if (ui->nameLineEdit->text().isEmpty()) {
         QMessageBox* error = new QMessageBox(QMessageBox::Warning, "Invalid Name", "Please give a name to your item!");
         error->open();
     } else {
