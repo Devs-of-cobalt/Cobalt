@@ -23,7 +23,7 @@
 	},
 	//theoriquement item only jusqu'a onKeyPress, les '|' ne seraient pas utilisés '","' à la place
 	"type": [
-		"sword|bow|pickaxe|axe|shovel|hoe|consumable|throwable|armor.head|newTool"
+		"sword|bow|pickaxe|axe|shovel|hoe|armor.helmet|armor.chestplate|armor.leggings|armor.boots|consumable|throwable|newTool"
 	],
 	"attributes": {
 		"damage": 255,

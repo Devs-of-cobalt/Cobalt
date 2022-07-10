@@ -1,0 +1,5 @@
+{
+"type": "sword|bow|pickaxe|axe|shovel|hoe",
+"armor": "helmet|chestplate|leggings|boots",
+"misc": "consumable|throwable|newTool"
+}

@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>mods/args.jsonc</file>
+    </qresource>
+</RCC>
